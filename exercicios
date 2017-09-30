@@ -1,0 +1,471 @@
+************lista 2*********************
+
+EXERCICIO 1
+
+#include <stdio.h>
+#include <stdlib.h>
+#define Pi 3.1415
+
+int main()
+{
+    float area, base, altura, raio;
+    char opcao;
+    do
+    {
+
+    printf("Digite uma das letras abaixo para o calculo: \n");
+
+    printf("a) Calculo da area do triangulo \n");
+    printf("b) Calculo da area do circulo \n");
+    printf("c) Calculo da area do paralelograma \n");
+    printf("d) SAIR \n\n");
+    fflush(stdin);
+    opcao = getchar();
+
+    switch (opcao){
+    case 'a':
+    case 'A':
+        printf("Insira o tamanho da base: \n");
+        scanf("%f", &base);
+        printf("Insira o tamanho da altura: \n");
+        scanf("%f", &altura);
+        area = ((base * altura)/2);
+        printf("Valor da area: %5.2f \n\n", area);
+        break;
+    case 'b':
+    case 'B':
+        printf("Insira o valor do raio: \n");
+        scanf("%f", &raio);
+        area = Pi * raio * raio;
+        printf("Valor da area: %5.2f \n\n", area);
+        break;
+    case 'c':
+    case 'C':
+        printf("Insira o tamanho da base: \n");
+        scanf("%f", &base);
+        printf("Insira o tamanho da altura: \n");
+        scanf("%f", &altura);
+        area = base * altura;
+        printf("Valor da area: %5.2f \n\n", area);
+        break;
+    case 'd':
+    case 'D':
+        printf("Tchau tchau o/ \n");
+
+        return 0;
+
+         }
+    } while (opcao = 'a', 'A', 'b', 'B', 'C', 'c');
+
+}
+
+___________________________________________________________
+Exercicio 2
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int diasAtraso,i;
+    float duplicata, juros, valor;
+
+    for (i=0;i<=8;i++){
+        printf("Insira o valor da duplicata: \n");
+        scanf("%f", &duplicata);
+        printf("Insira os dias de atraso da duplicata: \n");
+        scanf("%d", &diasAtraso);
+        juros = diasAtraso*0.03;
+        valor = juros * duplicata;
+        printf("Valor a pagar de juros:%10.2f\n", valor);
+        printf("Valor da duplicata:%10.2f\n\n", duplicata + valor);
+
+    }
+    system("Pause");
+    return 0;
+}
+________________________________________________________________
+EXERCICIO 3
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+    {
+
+    float result;
+    int mvolta, i, tempo, melhorT, medio;
+    int voltas[5];
+
+    medio = 0;
+
+     for (i=0;i<5;i++){
+       printf("insira o valor da volta %d \n", i+1);
+       scanf("%d", &voltas[i]);
+
+    }
+    melhorT = voltas[0];
+        for (i=0;i<5;i++){
+
+         if (melhorT > voltas[i]){
+           melhorT = voltas[i];
+           mvolta = i+1;
+         }
+        medio = medio + voltas[i];
+        }
+    result = medio / 5;
+    printf("a) Melhor tempo: %d \n", melhorT);
+    printf("b) Volta que o melhor tempo ocorreu: %d \n", mvolta);
+    printf("c) Media de melhor tempo: %5.2f \n", result);
+
+    return 0;
+}
+________________________________________________________________
+EXERCICIO 4
+xxxxxxxxxxx
+
+________________________________________________________________
+EXERCICIO 5
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+  int n, soma, i, x;
+  float media;
+
+  soma = 0;
+  printf("Quantos numeros serao inseridos: \n");
+  scanf("%d", &n);
+
+  for (i=0; i < n; i++){
+        x = 0; //zerou o x par entrar no while, para validar a entrada
+        while (x <= 0){
+            printf("Digite o valor: \n");
+            scanf("%d", &x);
+
+        }
+        soma += x; //soma recebe soma mais n
+  }
+    media = soma / n;
+  printf("Valor da media: %5.2f \n", media);
+    return 0;
+}
+__________________________________________________________________-
+EXERCICIO 6
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int i, j, n=2;
+
+
+    while (n % 2 == 0){
+    printf("Insira um numero impar: \n");
+    scanf("%d", &n);
+
+    }
+    for (i=1;i<=n;i++){
+        for(j=i;j<=n;j++){  //começa da linha do i
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+______________________________________________________
+EXERCICIO 7
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i, j;
+    float notas[5][4] = {{0}}, mf[5]={{0}};
+
+    printf("Insira as notas dos alunos: \n");
+    for (i=0;i<5;i++){
+        for(j=0;j<3;j++){
+           printf("aluno [%d] e nota [%d]: ", i+1, j+1);
+            scanf("%f",&notas[i][j]);
+            notas[i][3] += notas[i][j];
+        }
+         notas[i][3] = notas[i][3] / 3;
+    }
+    for (i=0;i<5;i++){
+     // for (j=0;j<3;j++)
+        mf[i] = (notas[i][0] + (notas[i][1] *2) + (notas[i][2]* 3) + notas[i][3]) /7;
+        printf(" aluno [%d] medias [%.2f]: \n", i+1, mf[i]);
+      }
+
+
+    return 0;
+}
+___________________________________________________________________
+EXERCICIO 8
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+  float a, b;
+  int anos=0;
+
+  a = 80000;
+  b = 200000;
+
+	while(a<b){
+		a = a + (a*0.04);
+		b = b + (b*0.013);
+		anos++;
+    printf("Pais A = %f \n", a);
+    printf("Pais B = %f \n", b);
+		}
+	printf("ANOS = %d \n", anos);
+
+	return 0;
+}
+
+
+___________________________________________________
+EXERCICIO 9
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n, imp=0, soma=0, i;
+
+
+   while(n > 0 && n < 100 ){
+        printf("Insira um numero: \n");
+        scanf("%d", &n);
+        if (n % 2 == 0){
+            soma = soma + n;
+        }else{
+        imp++;
+    }
+    if (soma >= 500){
+        break;
+    }
+    if (imp >= 10){
+        break;
+    }
+   }
+
+    printf("Soma par: %d\n", soma);
+    printf("Contagem de impar: %d\n", imp);
+    return 0;
+}
+_________________________________________________
+EXERCICIO 10
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int nm, palp;
+
+    nm = rand();
+
+    while (palp != nm){
+
+    printf("Palpite:\n");
+    scanf("%d", &palp);
+
+    if (palp == nm){
+        printf("Acertou! O numero eh: %d", nm);
+    }
+    else if (palp > nm){
+    printf("Muito alto! Tente novamente \n");
+    }else{
+        printf("Muito Baixo! Tente Novamente \n");
+        }
+    }
+
+    return 0;
+}
+_______________________________________________________
+
+
+*****************lista 3********************************
+
+EXERCICIO 01
+
+#include <stdio.h>
+#include <stdlib.h>
+
+main()
+{
+   int n[10], i, aux,j, total=1;
+
+   for(i=0;i<10;i++){ //laço para preencher os numeros inseridos
+    printf("Digite 10 numeros [%d] de 10: ",i+1); //i+1 para não iniciar do 0 o vetor ao aparecer
+    scanf("%d", &n[i]);
+
+   }
+   for(i=0;i<10;i++){
+        for(j=i;j<10;j++){
+          if (n[i]>n[j+1]){
+            aux=n[i];
+            n[i]= n[j+1];
+            n[j+1]= aux;
+          }
+    }
+   }
+   aux=0;
+   for(i=0;i<10;i++){
+        total=1;
+        for(j=i;j<10;j++){
+            if (n[i] == n[j+1]){
+                total+=1;
+
+            }
+        }
+        if (n[i] != n[i-1]){
+            printf("[%d] vez(es) o numero[%d] \n",total , n[i]);
+            total=1;
+        }
+
+   }
+}
+___________________________________________________________________
+EXERCICIO 2
+
+#include <stdio.h>
+#include <stdlib.h>
+#define QTD 10
+
+main()
+{
+    int num[QTD],i,j,aux=0;
+
+    for(i=0;i<QTD;i++){
+        printf("Digite 10 numeros 1 de cada vez %d/10 ",i+1);
+        scanf("%d", &num[i]);
+        }
+    for(i=0;i<QTD;i++){
+
+        if (num[i]%2==1){
+            for(j=i;j<QTD;j++){
+                if (num[j+1]%2==0){
+                    aux=num[j+1];
+                    num[j+1]=num[i];
+                    num[i]=aux;
+                    break;
+                }
+            }
+        }
+    }
+    for(i=0;i<QTD;i++){
+        if(num[i]%2==0){
+            printf("%d ", num[i]);
+            if(num[i+1]%2==1){
+                    printf(" Numeros pares \n");
+            }
+        }else{
+        printf("%d ",num[i]);
+        }
+    }
+    printf(" Numeros impares");
+}
+___________________________________________________
+EXERCICIO 3
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int n, i, cont;
+
+    do
+    {
+     printf("Insira um numero inteiro:\n");
+     scanf("%d",&n);
+
+    while (n>0) //validar que o numero é maior que 0
+    {
+        cont=0; //contador iniciado em 0
+        for(i=1;i<n;i++){ //for para fazer ate o numero inserido
+          if (n%i!=0){ //se o numero for divisivel por I diferente de 0
+            cont = cont+1; //vai contar a cada volta do loop
+            printf("O valor [%d] nao eh divisivel por [%d]\n", n,i);
+          }
+        }
+       break;
+    }
+    }while (n<=0);
+    printf("Nao Dividem o numero [%d] sao %d\ numeros\n",n,cont);
+
+    return 0;
+}
+________________________________________________________________
+EXERCICIO 4
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int vet[10]={{0}},x, j;
+    int div, i, cont;
+
+
+    for(i=0;i<10;i++){
+        vet[i] = rand()%100+1;
+        printf("Numeros apresentados na posicao[%d]: %d\n",i+1,vet[i]);
+    }
+    cont=0;
+    for(i=0;i<=10;i++){
+    for(j=1;j<=vet[i];j++){
+       div=vet[i]%j;
+       if(div==0){
+        cont=cont+1;
+        }
+       }
+       if (cont==2){
+        printf("Esse numero eh primo [%d]\n", vet[i]);
+       } else{
+       printf("Nao eh primo [%d]\n", vet[i]);
+       }
+    }
+    return 0;
+}
+___________________________________________________________________
+EXERCICIO 5
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main()
+{
+
+   int i, cont, r;
+    char vet[100];
+    char vogal[10];
+
+   cont=0;
+
+    printf("Insira a frase: \n");
+    gets(vet);
+    vogal[10]=('a','e','i','o','u','A','E','I','O','U');
+    for(i=0;i<strlen(vet);i++){
+        if (strlen(vet)!= vogal[i]){
+                vogal[i] = strlen(vet);
+                cont++;
+            }
+
+    }
+    printf("Qtd de vogais: %d", cont);
+    return 0;
+} 
+_____________________________________________________
+EXERCICIO 6
+xxxxxxxxxxxxxxx
